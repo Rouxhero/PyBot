@@ -1,0 +1,92 @@
+def endBot(needs):
+	end = True
+	statu = Awnser(good,"quit")
+	sock.sendall(statu.code().encode())
+	for component in needs['core'].component:
+		needs['core'].component[component][1].stop()
+	exit()
+
+def clear(needs):
+	statu = Awnser(good,"clear")
+	sock.sendall(statu.code().encode())
+
+
+def configBot(needs):
+	bot.config(output,sock)
+	output.showText()
+
+
+command["clear"] = clear
+command["quit"] = endBot
+command["config"] = configBot
+os.system('title PyBot interface')
+
+global end
+global bot
+global output
+global sock
+global needs
+
+
+end = False
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+local_hostname = socket.gethostname()
+local_fqdn = socket.getfqdn()
+
+ip_address = socket.gethostbyname(local_hostname)
+port = 55468
+server_address = (ip_address, port)
+sock.connect(server_address)
+
+
+def cmdExplode(cmds):
+	data = cmds.split(';')
+	finalD = []
+	for cmd in data :
+		finalD.append(cmd.replace(' ',''))
+
+	return finalD
+
+
+
+
+
+if __name__ == '__main__':
+	bot = Core()
+	output = Console()
+	needs = {"core":bot,"console":output,"socket":sock}
+	output.print("""
++========================================================================================+
+|   ________     ___    ___  ________      ________      _________                       |
+|  |\\   __  \\   |\\  \\  /  /||\\   __  \\    |\\   __  \\    |\\___   ___\\                     |
+|  \\ \\  \\|\\  \\  \\ \\  \\/  / /\\ \\  \\|\\ /_   \\ \\  \\|\\  \\   \\|___ \\  \\_|                     |
+|   \\ \\   ____\\  \\ \\    / /  \\ \\   __  \\   \\ \\  \\\\\\  \\       \\ \\  \\                      |
+|    \\ \\  \\___|   \\/  /  /    \\ \\  \\|\\  \\   \\ \\  \\\\\\  \\       \\ \\  \\                     |
+|     \\ \\__\\    __/  / /       \\ \\_______\\   \\ \\_______\\       \\ \\__\\                    |
+|      \\|__|   |\\___/ /         \\|_______|    \\|_______|        \\|__|                    |
+|   	        \\|___|/                                                                  |
+|                                                                                        |
+|  made by Rouxhero                                                                      |
++========================================================================================+
+|     Welcome to PyBot                                                                   |
+|                  type help for all commands                                            |
+|                                     type config to configure your bot                  |
++========================================================================================+
+""")
+
+
+while not end :
+	cmds = input('{}@{} >>>'.format( bot.get("defaultUser").data, bot.get("name").data))
+	data = cmdExplode(cmds)
+	for indexCmd in range(len(data)) :
+		cmd = data[indexCmd]
+		if cmd in command :
+				output.addLine('{}@{} >>>{}'.format( bot.get("defaultUser").data, bot.get("name").data,cmd))
+				command[cmd](needs)
+		else :
+			statu = Awnser(warning,"Unknow Cmd {}".format(cmd))
+			sock.sendall(statu.code().encode())                                                  
+                                               	
+                                                                  
+                                               
