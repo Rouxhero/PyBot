@@ -3,5 +3,5 @@
 </p>
 
 
-![Download](https://img.shields.io/github/downloads/RouxHero/PyBot/0.1/total)
-[![discord](https://img.shields.io/discord/449602562165833758.svg)](https://discord.gg/WEXSY9h)
+[![Download](https://img.shields.io/github/downloads/RouxHero/PyBot/0.1/total)](https://github.com/Rouxhero/PyBot/archive/refs/tags/0.1.zip)
+[![Discord](https://img.shields.io/discord/872072179414597652?style=flat-square)](https://discord.gg/sgzy9bRMbd)
