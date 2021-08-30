@@ -1,0 +1,9 @@
+Observer les fichiers en cours d'édition dans un répertoire déf afin de faire une save groupée
+    => Intervale de temps régu
+    => Dossier
+    => Compresser sous forme ('date-heure_Project.zip')
+        =>Dossier Backup
+
+    ++)
+        => PréCompression de l'info via les cours de CDC ?
+        => Cryptage de l'intégralité du code PréCompression
