@@ -7,3 +7,8 @@ Observer les fichiers en cours d'édition dans un répertoire déf afin de faire
     ++)
         => PréCompression de l'info via les cours de CDC ?
         => Cryptage de l'intégralité du code PréCompression
+
+
+
+
+IMPORTANT: AJOUT DES NOUVEAUX FICHIERS
